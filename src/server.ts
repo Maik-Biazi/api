@@ -4,13 +4,15 @@ dotenv.config()
 
 import express from "express";
 
+
 import cors from 'cors'
 
-// const routes = require()
+import routes from './routes';
 const porta = process.env.PORTA;
 const app = express();
 
 app.use(cors())
+app.use(routes)
 
 app.use(express.json({limit:'50mb'}));
 
