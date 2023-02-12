@@ -1,20 +1,12 @@
-import * as dotenv from 'dotenv' 
+import express from 'express';
+import routes from './routes'
 
-dotenv.config()
-
-import express from "express";
-
-
-import cors from 'cors'
-
-import routes from './routes';
-const porta = process.env.PORTA;
 const app = express();
 
-app.use(cors())
 app.use(routes)
 
-app.use(express.json({limit:'50mb'}));
+const PORT = 3000;
 
-app.listen(porta,()=> console.log("api rodando na porta"+ porta))
-
+app.listen(PORT, () => {
+  console.log(`Server is listening on http://localhost:${PORT}`)
+})
